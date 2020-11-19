@@ -64,6 +64,10 @@ Demo cho cả quy trình trên ở file gif như sau
 
 ![Demo quy trinh rebase va push](./readme/git-push.gif)
 
+Sau khi push code lên rồi thì phải lên github tạo pull request để admin merge code với master
+
+![Demo create pull request](./readme/pull-request.gif)
+
 ### 1.2. Các bước delete branch
 
 - Delete branch ở local
