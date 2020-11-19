@@ -18,16 +18,25 @@ Các bước cần làm là:
 # Kiểm tra branch đang có hiện tại
 git branch
 git branch -a
-git branch -r # check branch ở remote
 
 # Checkout ra master rồi pull code
-
 git checkout master
 git pull
+
+#
 
 # Tạo branch mới theo chức năng
 git checkout -b thong/login
 
+# Sau khi code chức năng đầy đủ rồi thì push lên như sau:
+# Đứng ở thư mục có file .git
 
+# Nên rebase lại nhánh master để code merge vào nhánh master luôn như sau:
+git add .
+git commit -m "Mo ta ve lan commit"
+git rebase master
+git push
+
+# Lần đầu push ở branch mới sẽ có thông báo phải push theo git push --set-upstream origin thong/login
 
 ```
