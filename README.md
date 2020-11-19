@@ -46,7 +46,7 @@ Nếu muốn sử dụng lại branch đó thì sau khi pull request xong thì c
 C1:
 
 ```bash
-git pull master
+git pull origin master
 ```
 
 C2:
