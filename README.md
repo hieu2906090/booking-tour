@@ -41,6 +41,29 @@ git push
 
 ```
 
+Nếu muốn sử dụng lại branch đó thì sau khi pull request xong thì cứ pull master về hoặc checkout master -> pull -> checkout lại về branch đó -> rebase với master.
+
+C1:
+
+```bash
+git pull master
+```
+
+C2:
+
+```bash
+git checkout master
+git pull
+git checkout <branch-can-doi>
+git rebase master
+```
+
+\*\* Phải đảm bảo trước khi code tính năng nào thì phải pull code mới nhất của master về
+
+Demo cho cả quy trình trên ở file gif như sau
+
+![Demo quy trinh rebase va push](./readme/git-push.gif)
+
 ### 1.2. Các bước delete branch
 
 - Delete branch ở local
@@ -54,5 +77,3 @@ git branch -D <ten-branch-can-delete>
 ```bash
 git push origin --delete <ten-branch-can-delete>
 ```
-
-thay dodoir
