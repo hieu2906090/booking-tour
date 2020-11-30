@@ -21,9 +21,27 @@ function Section() {
             </ul>
         </div>),
         tourPrice: "7.490.000VND"
-    }]
-
-
+    },
+    {
+        tourName: "Tour Miền Nam 5N4D: Sài Gòn - Hà Nội -SaPa - Hạ Long",
+        liList: (<div className="itemli">
+            <ul>
+                <li>Khách sạn 4 sao</li>
+                <li>Bay VNAir</li>
+            </ul>
+        </div>),
+        tourPrice: "7.490.000VND"
+    },
+    {
+        tourName: "Tour Miền Nam 5N4D: Sài Gòn - Hà Nội -SaPa - Hạ Long",
+        liList: (<div className="itemli">
+            <ul>
+                <li>Khách sạn 4 sao</li>
+                <li>Bay VNAir</li>
+            </ul>
+        </div>),
+        tourPrice: "7.490.000VND"
+    }];
     return (
         <div className="section1">
             <h2>
