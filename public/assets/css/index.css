@@ -1,0 +1,152 @@
+body{
+    background-color: rgb(233, 252, 252);
+}
+.mainvisual{
+    position: relative;
+    margin-top: 50px;
+}
+img.mainvisual{
+    width: 100%;
+    height: 500px;
+}
+
+.inputarea{
+    width: 700px;
+    height: 130px;
+    position: absolute;
+    top: 17%;
+    left: 10%;
+    border: 5px solid white;
+    border-radius: 10px;
+    background-color: rgb(170, 250, 95);
+    opacity: 0.7;
+}
+.inp1{
+    clear: both;
+    width: 90%;
+    height: 50px;
+    margin-top:20px;
+    margin-left: 5%;
+}
+.inp2{
+    width: 36%;
+    height: 25px;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+.searchbtn{
+    display: inline;
+    width: 10%;
+    height: 30px;
+    background-color: tomato;
+    color: white;
+}
+.sec-til{
+    margin-left: 7%;
+    font-size: 40px;
+}
+.sec-sub{
+    float: right;
+    margin-right: 7%;
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 25px;
+}
+h2{
+    border-bottom: 5px solid rgb(3, 165, 143);
+    margin-bottom: 80px;
+}
+h2 span{
+    color: rgb(3, 105, 29);
+}
+a{
+    text-decoration: none;
+}
+.item{
+    width: 25%;
+    left: 10%;
+    float: left;
+    position: relative;
+    bottom: 50px;
+    top :30%;
+    border: 1px solid white;
+    height: 470px;
+    background-color: rgb(250, 241, 228);
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.item img{
+    position: absolute;
+   width: 100%;
+   height: 170px;
+}
+
+.item-firs{
+    position: absolute;
+    top:57%;
+    left: 5%;
+}
+.item-firs span{
+    color: red;
+    font-size: 15px;
+}
+.score{
+    background-color: rgb(245, 244, 244);
+    border: 1px solid red;
+    padding-left: 5px;
+    padding-right :5px;
+    font-weight: bolder;
+    font-size: 15px;
+}
+.item p{
+    position: absolute;
+    /* bottom: 45%; */
+    left: 5%;
+    font-weight: bold;
+    color: rgb(3, 105, 29);
+    font-size: 19px;
+    margin-top: 180px;
+}
+.itemli{
+    position: absolute;
+    color: rgb(59, 32, 1);
+    top:60%;
+    font-weight: bold;
+    font-size :16px;
+}
+
+.price{
+    position: absolute;
+    top :52%;
+    left:45%;
+}
+.price p{
+    font-size:23px;
+    font-weight: bolder;
+    color: rgba(27, 236, 8, 0.952);
+}
+img.slide:not(:first-child){
+    display: none;
+}
+.btn-change{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top : 50%;
+    transform: translateY(-100%);
+}
+#next{
+    right: 10px;
+}
+
+#prev{
+    left: 10px;
+}
+.item:hover{
+    background-color: rgb(236, 248, 213);
+    transform: scale(1.1);
+    transition:.7s;
+}
+
+
+

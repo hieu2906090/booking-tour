@@ -1,10 +1,11 @@
-import Header from "./components/Header";
+import React from 'react'
+import HomePage from './views/HomePage/HomePage'
 
 function App() {
   return (
     <div className="App">
       <div className="container-fluid">
-        <Header></Header>
+        <HomePage></HomePage>
       </div>
     </div>
   );
