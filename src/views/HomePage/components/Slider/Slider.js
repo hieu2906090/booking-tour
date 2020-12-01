@@ -217,41 +217,41 @@ function Slider() {
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 whyIvivu no-padding">
-        <div class="container">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding whyIvivuContainer v-margin-top-15">
-            <div class="row">
-              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="media">
-                  <div class="media-left media-middle">
-                    <i class="fa fa-check-circle"></i>
+      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 whyIvivu no-padding">
+        <div className="container">
+          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding whyIvivuContainer v-margin-top-15">
+            <div className="row">
+              <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div className="media">
+                  <div className="media-left media-middle">
+                    <i className="fa fa-check-circle"></i>
                   </div>
-                  <div class="media-body media-middle">
-                    <p class="media-heading">
+                  <div className="media-body media-middle">
+                    <p className="media-heading">
                       Tour chọn lọc <b>chất lượng nhất</b>
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="media">
-                  <div class="media-left media-middle">
-                    <i class="fa fa-check-circle"></i>
+              <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div className="media">
+                  <div className="media-left media-middle">
+                    <i className="fa fa-check-circle"></i>
                   </div>
-                  <div class="media-body media-middle">
-                    <p class="media-heading">
+                  <div className="media-body media-middle">
+                    <p className="media-heading">
                       Bảo đảm <b>giá tốt nhất</b>
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="media">
-                  <div class="media-left media-middle">
-                    <i class="fa fa-check-circle"></i>
+              <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div className="media">
+                  <div className="media-left media-middle">
+                    <i className="fa fa-check-circle"></i>
                   </div>
-                  <div class="media-body media-middle">
-                    <p class="media-heading">
+                  <div className="media-body media-middle">
+                    <p className="media-heading">
                       Đội ngũ tư vấn <b>chi tiết và tận tình</b>
                     </p>
                   </div>

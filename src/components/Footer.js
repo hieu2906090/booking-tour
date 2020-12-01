@@ -154,11 +154,11 @@ function Footer() {
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding socialIcons hidden-xs">
                       <span
-                        itemscope=""
-                        itemtype="http://schema.org/Organization"
+                        itemScope=""
+                        itemType="http://schema.org/Organization"
                       >
                         <a
-                          itemprop="sameAs"
+                          itemProp="sameAs"
                           href="https://facebook.com/iVIVU"
                           target="_blank"
                           className="v-margin-right-5"
@@ -169,7 +169,7 @@ function Footer() {
                           ></i>
                         </a>
                         <a
-                          itemprop="sameAs"
+                          itemProp="sameAs"
                           href="https://twitter.com/#!/ivivudotcom"
                           target="_blank"
                           className="v-margin-left-5 v-margin-right-5"
@@ -181,7 +181,7 @@ function Footer() {
                         </a>
 
                         <a
-                          itemprop="sameAs"
+                          itemProp="sameAs"
                           href="https://www.instagram.com/ivivu/"
                           target="_blank"
                           className="v-margin-right-5"
@@ -192,7 +192,7 @@ function Footer() {
                           ></i>
                         </a>
                         <a
-                          itemprop="sameAs"
+                          itemProp="sameAs"
                           href="https://www.youtube.com/channel/UC7_UHi9BBHFXJViCQEcplQg"
                           target="_blank"
                           className="v-margin-left-5 v-margin-right-5"
@@ -300,9 +300,9 @@ function Footer() {
                           height="1000px"
                           data-testid="fb:like Facebook Social Plugin"
                           title="fb:like Facebook Social Plugin"
-                          frameborder="0"
-                          allowtransparency="true"
-                          allowfullscreen="true"
+                          frameBorder="0"
+                          // allowTransparency="true"
+                          allowFullScreen="true"
                           scrolling="no"
                           allow="encrypted-media"
                           src="https://www.facebook.com/v7.0/plugins/like.php?action=like&amp;app_id=628025334278848&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df1a16809b76918%26domain%3Dwww.ivivu.com%26origin%3Dhttps%253A%252F%252Fwww.ivivu.com%252Ff680507ca2517c%26relation%3Dparent.parent&amp;container_width=120&amp;href=https%3A%2F%2Fwww.facebook.com%2FiVIVU&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=false"

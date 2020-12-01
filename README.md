@@ -81,3 +81,11 @@ git branch -D <ten-branch-can-delete>
 ```bash
 git push origin --delete <ten-branch-can-delete>
 ```
+
+### 1.3. Cách sử dụng localstorage đơn giản
+
+```js
+localStorage.setItem("tours", JSON.stringify(tours));
+const toursLocal = localStorage.getItem("tours");
+console.log(JSON.parse(toursLocal));
+```
