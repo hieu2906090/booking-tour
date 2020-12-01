@@ -1,0 +1,12 @@
+.homePageFooterDiv {
+  background-color: #f9f9f9;
+}
+
+footer {
+  display: block;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}

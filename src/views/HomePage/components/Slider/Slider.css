@@ -1,0 +1,218 @@
+@media only screen and (min-width: 480px) {
+  .search-form .v_field__icon-container .fas {
+    font-size: 20px;
+    margin-right: 15px;
+    color: rgba(108, 112, 126, 0.8);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .tourHomeHeader {
+    height: 492px;
+  }
+  .tourHomeSearchPanel .positionPanel {
+    top: 9.84px;
+  }
+  .tourHomeSearchPanel .tourHomeIntro h1 {
+    font-size: 21px;
+    margin-bottom: 15px;
+  }
+  .tourHomeSearchPanel .tourHomeIntro h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .search-form {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+  }
+  .whyIvivuContainer .media .media-left i.fa {
+    font-size: 30px;
+  }
+}
+
+.tourHomeSearchPanel .positionPanel {
+  position: absolute;
+}
+
+.tourHomeSearchPanel .tourHomeIntro {
+  color: white;
+}
+
+.tourHomeHeader {
+  transition: all 0.2s ease-in-out;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
+  padding: 50px 0px;
+}
+
+.tourHomeSearchPanel .tourHomeIntro h1 {
+  margin: 0px;
+  font-weight: bold;
+  font-family: Helvetica;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.search-form.home-page {
+  background: rgba(0, 0, 0, 0.3);
+}
+.search-form {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.search-form .form-control.search-input {
+  font-size: 16px;
+  height: 60px;
+  padding: 0px 15px;
+  padding-left: 50px;
+}
+.typeAHeadDiv .twitter-typeahead input {
+  color: #494b55;
+}
+.search-form .v_field {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  border-radius: 4px;
+  cursor: pointer;
+  background: white;
+  transition: all 0.3s linear;
+  user-select: none;
+  color: #494b55;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.col-xs-12 {
+  width: 100%;
+}
+.typeahead-container .twitter-typeahead {
+  width: 100%;
+}
+.v-margin-bottom-15 {
+  margin-bottom: 15px;
+}
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.btn.btn-action {
+  transition: all 0.2s linear;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background: #f79321;
+  border: 1px solid #f79321;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px;
+}
+.search-form .search-form-button {
+  height: 60px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+/* .invisible-date-container .invisible-date-picker,
+.invisible-date-container .departure-location,
+.departure-container .invisible-date-picker,
+.departure-container .departure-location {
+  height: 60px;
+  width: 100%;
+  color: transparent;
+  cursor: pointer;
+} */
+.invisible-date-container,
+.departure-container {
+  position: absolute;
+  top: 0px;
+}
+.search-form .form-control.search-input {
+  font-size: 16px;
+  height: 60px;
+  padding: 0px 15px;
+  padding-left: 50px;
+}
+
+.search-form .input-icon {
+  position: absolute;
+  color: rgba(108, 112, 126, 0.8);
+  margin-left: 16px;
+  margin-right: 4px;
+  font-size: 18px;
+}
+.whyIvivu {
+  background-color: rgba(0, 60, 113, 0.05);
+}
+.whyIvivuContainer .media {
+  color: #003c71;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.media:first-child {
+  margin-top: 0;
+}
+.media-left,
+.media > .pull-left {
+  padding-right: 10px;
+}
+
+.media .fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+}

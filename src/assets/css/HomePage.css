@@ -1,0 +1,37 @@
+.content {
+  min-height: 250px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Section to render to UI */
+/* TODO: Check why glyphicon has not recognize (bootstrap) */
+section {
+  display: block;
+}
+.col-xs-12 {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.localHeadLine.hasLine {
+  margin-bottom: 30px;
+  margin-top: 5px;
+  border-bottom: 2px solid #003c71;
+}
+.localHeadLine {
+  color: #003c71;
+}
+.headLine,
+.localHeadLine {
+  font-weight: normal;
+  padding: 8px 0;
+  font-size: 32px;
+}
+
+.localHeadLine .readMoreTours {
+  font-size: 12px;
+  float: right;
+  position: relative;
+  top: 17px;
+}
