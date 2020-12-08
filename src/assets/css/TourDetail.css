@@ -1,0 +1,29 @@
+.layout-top-nav .content-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 1200px) {
+  .col-lg-pull-4 {
+    right: 33.33333333%;
+  }
+  .col-lg-8 {
+    width: 66.66666667%;
+  }
+}
+.tourHeaderContainer {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.v-margin-bottom-30 {
+  margin-bottom: 30px;
+}
+.tourHeaderInfo.belowCover {
+  padding: 15px 0;
+  color: #50535d;
+  text-shadow: 0 0 1px white;
+  background: rgba(148, 151, 163, 0.1);
+  border-bottom: 1px solid rgba(148, 151, 163, 0.15);
+  font-size: 16px;
+}
+.tourHeaderInfo {
+  font-weight: bold;
+}

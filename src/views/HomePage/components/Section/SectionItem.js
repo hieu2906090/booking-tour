@@ -1,12 +1,18 @@
 import React from "react";
 import "../../../../assets/css/SectionItem.css";
+import { Link } from "react-router-dom";
 
 function SectionItem(props) {
   return (
     <>
       <div className="col-xs-12 col-sm-6 col-md-4">
         <div className="col-xs-12 cardItem">
-          <a href="/du-lich/tour-mien-bac-5n4d-sai-gon-ha-noi-sapa-ha-long/1257">
+          <Link
+            to={{
+              pathname: "/tour/" + props.tour.tourId,
+              keyUrl: props.keyUrl,
+            }}
+          >
             <div className="col-xs-12 no-padding cardItemContainer">
               <div className="col-xs-12 no-padding cardItemImage">
                 <div className="ribbonContainerOuter">
@@ -72,7 +78,7 @@ function SectionItem(props) {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </>
