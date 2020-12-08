@@ -1,0 +1,8 @@
+@media (min-width: 1200px) {
+  .col-lg-push-8 {
+    left: 66.66666667%;
+  }
+  .col-lg-4 {
+    width: 33.33333333%;
+  }
+}

@@ -34,7 +34,10 @@ export default function HomePage() {
   ];
 
   return (
-    <>
+    <div
+      className="content-wrapper"
+      style={{ backgroundColor: "#ecf0f5 !important", zIndex: 800 }}
+    >
       <Header></Header>
       <Slider></Slider>
       {/* <RecentViews></RecentViews> */}
@@ -56,7 +59,6 @@ export default function HomePage() {
           </div>
         </section>
       </div>
-      {/* <Footer></Footer> */}
-    </>
+    </div>
   );
 }
