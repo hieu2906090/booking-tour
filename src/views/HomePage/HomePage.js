@@ -46,7 +46,12 @@ export default function HomePage() {
           <div className="col-xs-12 no-padding">
             {tourList.map((tourList) => {
               return (
-                <Link to={"/tourlist/" + tourList.key}>
+                <Link
+                  to={{
+                    pathname: "/tour-list/" + tourList.key,
+                    keyUrl: tourList.keyUrl,
+                  }}
+                >
                   <Section
                     key={tourList.key}
                     name={tourList.name}

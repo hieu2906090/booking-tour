@@ -60,11 +60,9 @@ function App() {
         <Route
           path="/tour-list/:list"
           render={(props) => {
-            return <TourFilter></TourFilter>;
-            // if (getTourListFromPath(props.match.params.id) === undefined) {
-            //   return;
-            // }
-            // return <TourDetail tour={getTourFromId(props.match.params.id)} />;
+            console.log(props.location.keyUrl);
+            let tourList = tours[props.location.keyUrl];
+            return <TourFilter tours={tourList}></TourFilter>;
           }}
         ></Route>
       </Switch>
