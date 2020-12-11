@@ -82,7 +82,44 @@ git branch -D <ten-branch-can-delete>
 git push origin --delete <ten-branch-can-delete>
 ```
 
-### 1.3. Cách sử dụng localstorage đơn giản
+## 2. CÁCH RESET TRÊN GIT
+
+Có 2 cách thường sử dụng khi reset là soft reset và hard reset.
+Soft reset: Các thay đổi sẽ được đưa vào stash changes để chờ commit
+Hard reset: Bỏ qua các thay đổi, đưa dự án về lần commit đã chọn
+
+Nên checkout ra 1 branch riêng để test các lệnh reset này
+
+```bash
+git checkout -b hieunq-test-reset
+```
+
+```bash
+# Kết hợp git reflog để theo dõi lịch sử thay đổi
+git reflog
+```
+
+![ Kết quả từ lệnh git reflog ](./readme/git-reflog.png)
+
+Lựa chọn HEAD muốn reset về
+
+```bash
+git reset --hard HEAD@{1}
+
+# Tương tự như lệnh trên thì để reset lui 1 bước dùng lệnh này
+git reset --hard HEAD~1 # thay 1 bằng số commit muốn lui lại
+```
+
+Để sử dụng git trên toàn dự án thì phải chọn git repo ở đây
+![Bấm đây để sử dụng git repo của cả dự án](./readme/git-repo.png)
+
+Kết hợp với giao diện thì sẽ làm như sau:
+
+![Hướng dẫn sử dụng git reset](./readme/git-reset-step.gif)
+
+## 3. SỬ DỤNG TÍNH NĂNG TRÊN JS
+
+### 3.1. Cách sử dụng localstorage đơn giản
 
 ```js
 localStorage.setItem("tours", JSON.stringify(tours));
