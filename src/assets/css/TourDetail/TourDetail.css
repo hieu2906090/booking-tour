@@ -1,0 +1,28 @@
+.layout-top-nav .content-wrapper {
+  margin-left: 0;
+}
+element.style {
+  min-height: 836px;
+}
+.content-wrapper {
+  min-height: 100%;
+  background-color: #ecf0f5;
+  z-index: 800;
+  transition: transform 0.15s ease-in-out, margin 0.15s ease-in-out;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.hidden {
+  display: none !important;
+}

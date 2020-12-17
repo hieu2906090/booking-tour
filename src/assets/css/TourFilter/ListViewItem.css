@@ -1,0 +1,142 @@
+.tourListContainer .tourList .tourItem {
+  margin-bottom: 15px;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  background: #fff;
+  font-size: 13px;
+}
+.tourListContainer .tourList .tourItem > div {
+  position: relative;
+}
+body,
+table.body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+td,
+th,
+a {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #003c71;
+  text-decoration: none;
+  background-color: transparent;
+}
+@media only screen and (min-width: 768px) {
+  .tourListContainer .tourList .tourItem .tourItemContent {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.v-margin-top-10 {
+  margin-top: 10px;
+}
+.tourListContainer .tourList .tourItem .tourItemContent .tourItemName {
+  line-height: 1.3;
+  font-size: 20px;
+  font-weight: normal;
+}
+.tourListContainer .tourList .tourItem .tourItemContent .tourItemName a {
+  transition: all 0.2s ease-in-out;
+  color: #003c71;
+  text-decoration: none;
+}
+.v-margin-top-10 {
+  margin-top: 10px;
+}
+.v-margin-right-15 {
+  margin-right: 15px;
+}
+.tourListContainer .tourList .tourItem .tourItemContent .tourListPros {
+  color: #00abc5;
+}
+.list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+ul,
+ol {
+  margin-bottom: 10px;
+}
+input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Side Info of List */
+
+@media only screen and (min-width: 768px) {
+  .tourListContainer
+    .tourList
+    .tourItem
+    .tourItemContent
+    .tourItemContentPrice {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.tourListContainer
+  .tourList
+  .tourItem
+  .tourItemContent
+  .tourItemContentPrice
+  .tourItemDateTime {
+  color: #003c71;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+@media only screen and (min-width: 1200px) {
+  .tourListContainer
+    .tourList
+    .tourItem
+    .tourItemContent
+    .tourItemContentPrice
+    .tourItemPrice {
+    font-size: 26px;
+  }
+}
+.tourListContainer
+  .tourList
+  .tourItem
+  .tourItemContent
+  .tourItemContentPrice
+  .tourItemPrice
+  .tourItemCurrency {
+  font-size: 13px;
+}
+.tourListContainer
+  .tourList
+  .tourItem
+  .tourItemContent
+  .tourItemContentPrice
+  .tourItemPricePerGuest {
+  color: rgba(129, 129, 128, 0.85);
+  font-size: 13px;
+}
+.tourListContainer .tourList .tourItem .tourItemContent .tourBooking24H {
+  margin-top: 10px;
+  color: #e52822;
+  border: solid 1px #e52822;
+  border-radius: 2px;
+  padding: 2px 5px 3px;
+  float: right;
+}
+.tourListContainer
+  .tourList
+  .tourItem
+  .tourItemContent
+  .tourItemContentPrice
+  .tourItemPrice {
+  color: #00c1de;
+}
