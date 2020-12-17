@@ -10,3 +10,13 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.content {
+  min-height: 250px;
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import "../../assets/css/HomePage.css";
 
 export default function HomePage() {
+  console.log("HomePage Called");
   const tours = useContext(HomepageContext);
   //   const [tourList, setTourList] = useState([]);
   const tourList = [

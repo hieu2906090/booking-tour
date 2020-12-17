@@ -5,10 +5,11 @@ function DetailSideBar() {
   return (
     <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-lg-push-8 col-md-push-8 sideBarContent">
       <div className="col-xs-12 no-padding tourSideBar" id="tourSideBar">
-        <span className="tourItemFull hide-className" id="ItemUnavailable">
+        <span className="tourItemFull hide-class" id="ItemUnavailable">
           <img
+            src="https://www.ivivu.com/du-lich/content/img/icon-hetcho.svg"
             className="lazy"
-            data-src="/du-lich/content/img/icon-hetcho.svg"
+            data-src="https://www.ivivu.com/du-lich/content/img/icon-hetcho.svg"
             alt="Hết chỗ"
           />
         </span>
@@ -29,7 +30,7 @@ function DetailSideBar() {
                       <div className="col-xs-12 no-padding v-margin-bottom-15">
                         <div className="form-group">
                           <label
-                            for="DateCheckinField"
+                            htmlFor="DateCheckinField"
                             className="col-xs-8 control-label no-padding"
                           >
                             Chọn ngày khởi hành:
@@ -60,7 +61,7 @@ function DetailSideBar() {
                         <span className="text-detail">
                           <span className="width-70">Người lớn</span>
                         </span>
-                        <span className="SpecialRateAdultAvg price-color hide-className"></span>
+                        <span className="SpecialRateAdultAvg price-color hide-class"></span>
                         <span className="RateAdultAvg price-color">
                           {" "}
                           x 6.290.000
@@ -85,7 +86,7 @@ function DetailSideBar() {
                         <span className="text-detail">
                           <span className="width-70">Trẻ em</span>
                         </span>
-                        <span className="SpecialRateChildAvg price-color hide-className"></span>
+                        <span className="SpecialRateChildAvg price-color hide-class"></span>
                         <span className="RateChildAvg price-color"></span>
                         <div className="btn-group">
                           <button
@@ -102,20 +103,20 @@ function DetailSideBar() {
                           </button>
                         </div>
                       </div>
-                      <div className="col-xs-12 no-padding v-margin-bottom-15 hide-className Age_Childs">
+                      <div className="col-xs-12 no-padding v-margin-bottom-15 hide-class Age_Childs">
                         <p className="v-margin-bottom-5">Độ tuổi trẻ em</p>
                         <ul
                           className="child-ages no-padding"
                           style={{ listStyle: "none" }}
                         ></ul>
                       </div>
-                      <div className="col-xs-12 no-padding v-margin-bottom-15 showMsgAllotment hide-className">
+                      <div className="col-xs-12 no-padding v-margin-bottom-15 showMsgAllotment hide-class">
                         <span style={{ color: "#ffbd00" }}>
                           Chỗ cuối cùng đã được đặt vui lòng chọn ngày khác
                         </span>
                       </div>
-                      <div className="col-xs-12  no-padding v-margin-bottom-15 RateSurchargeAdult hide-className"></div>
-                      <div className="col-xs-12  no-padding v-margin-bottom-15 SpecialRateSurchargeAdult hide-className">
+                      <div className="col-xs-12  no-padding v-margin-bottom-15 RateSurchargeAdult hide-class"></div>
+                      <div className="col-xs-12  no-padding v-margin-bottom-15 SpecialRateSurchargeAdult hide-class">
                         <div className="col-xs-7 no-padding">
                           <span>Phụ thu phòng đơn</span>
                         </div>
@@ -133,7 +134,7 @@ function DetailSideBar() {
                           <span className="tourItemCurrency">VND</span>
                         </span>
                       </div>
-                      <div className="col-xs-12 no-padding v-margin-bottom-15 commistionRate hide-className">
+                      <div className="col-xs-12 no-padding v-margin-bottom-15 commistionRate hide-class">
                         <div className="col-xs-7 no-padding">
                           <span>Commission</span>
                         </div>
@@ -141,7 +142,7 @@ function DetailSideBar() {
                           <span className="price-commisson">0 VND</span>
                         </div>
                       </div>
-                      <div className="col-xs-12 no-padding specialrate-wrap-inner hide-className">
+                      <div className="col-xs-12 no-padding specialrate-wrap-inner hide-class">
                         <label className="ivivuPoint-checkbox">
                           <span className="specialName"></span>
                           <span className="specialPrice"></span>
@@ -175,13 +176,13 @@ function DetailSideBar() {
                                 Yêu cầu đặt
                               </button>
                             </div>
-                            <div className="col-xs-12 no-padding check-Button hide-className">
+                            <div className="col-xs-12 no-padding check-Button hide-class">
                               <button className="btn btn-flat btn-action btn-md btn-block checkButton requestPrice">
                                 Xem giá
                               </button>
                             </div>
 
-                            <div className="col-xs-12 no-padding book-Button hide-className">
+                            <div className="col-xs-12 no-padding book-Button hide-class">
                               <button className="btn btn-flat btn-action btn-md btn-block bookButton">
                                 Đặt ngay
                               </button>

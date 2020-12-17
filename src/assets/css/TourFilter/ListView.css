@@ -1,0 +1,83 @@
+.tourListContainer {
+  font-size: 14px;
+  color: #616161;
+}
+.v-margin-bottom-15 {
+  margin-bottom: 15px;
+}
+@media (min-width: 1200px) {
+  .col-lg-push-3 {
+    left: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-9 {
+    width: 75%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-9 {
+    float: left;
+  }
+}
+
+.pageTitle {
+  color: #003c71;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+.box.box-default {
+  border-top-color: #d2d6de;
+}
+.non-border {
+  border-radius: 0;
+}
+
+.box {
+  position: relative;
+  background: #fff;
+  border-top: 3px solid #d2d6de;
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.text-center {
+  text-align: center;
+}
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+  position: relative;
+  min-height: 1px;
+}
+@media (min-width: 1200px) {
+  .col-lg-2 {
+    width: 16.66666667%;
+  }
+}
+
+.tourListContainer .orderList .orderItem.active {
+  color: #00c1de;
+  background-color: rgba(210, 214, 222, 0.3);
+}
+
+@media only screen and (min-width: 480px) {
+  .tourListContainer .orderList .orderItem {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+.tourListContainer .orderList .orderItem {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.tourListContainer .orderList .orderItem p {
+  text-align: center;
+}
+.tourListContainer .orderList p {
+  padding-top: 10px;
+  padding-bottom: 0;
+}

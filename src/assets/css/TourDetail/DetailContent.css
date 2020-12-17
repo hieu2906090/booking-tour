@@ -1,0 +1,151 @@
+@media (min-width: 1200px) {
+  .col-lg-pull-4 {
+    right: 33.33333333%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-lg-8 {
+    width: 66.66666667%;
+  }
+}
+
+/* Tour Header Below Cover Section */
+.tourHeaderInfo.belowCover {
+  padding: 15px 0;
+  color: #50535d;
+  text-shadow: 0 0 1px white;
+  background: rgba(148, 151, 163, 0.1);
+  border-bottom: 1px solid #9497a326;
+  font-size: 16px;
+}
+
+.tourHeaderInfo {
+  font-weight: bold;
+}
+.tourHeaderInfo span {
+  line-height: 1.8;
+}
+.v-margin-right-30 {
+  margin-right: 30px;
+}
+.tourHeaderInfo.belowCover .tourHeaderTourCodeDiv {
+  text-align: right;
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+.vcolor-info {
+  color: #00c1de;
+}
+
+/* Tour Detail Main ConTent Section */
+.tourHeaderContainer .tourHeaderContent {
+  background: #fff;
+}
+.tourDetailheadLine {
+  padding: 10px 0;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: bold;
+}
+.vcolor-primary {
+  color: #003c71;
+}
+.fb_iframe_widget {
+  display: inline-block;
+  position: relative;
+}
+@media only screen and (min-width: 480px) {
+  .tourDetailContainer .tourDetailMainDiv .tourScheduleContainer {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+.tourDetailContainer .tourDetailMainDiv .tourSchedule h3:first-child {
+  margin-top: 0;
+}
+.tourDetailContainer .tourDetailMainDiv .tourSchedule h3 {
+  font-size: 18px;
+  color: #4e4e4e;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.tourDetailContainer .tourDetailMainDiv p {
+  line-height: 1.45;
+  font-size: 16px;
+}
+.tourDetailContainer .tourDetailMainDiv .tourSchedule img {
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+img {
+  vertical-align: middle;
+}
+img {
+  border: 0;
+}
+
+/* Ask For Advice Section */
+.tourDetailContainer .tourDetailMainDiv .bg-askForAdvice {
+  background-color: #feeec7;
+  padding-bottom: 20px;
+  margin: 10px 0;
+}
+
+/* Following Service */
+.tourDetailheadLine {
+  padding: 10px 0;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: bold;
+}
+.tourDetailContainer .tourDetailMainDiv .tourService .tourServiceItem {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+}
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+.nav > li {
+  position: relative;
+  display: block;
+}
+.tourDetailContainer .tourDetailMainDiv .tourRule .nav > li > a {
+  padding: 10px 9px;
+}
+.nav.nav-tabs li a {
+  border-radius: 0;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+}
+@media (min-width: 1200px) {
+  .visible-lg-inline {
+    display: inline !important;
+  }
+}
