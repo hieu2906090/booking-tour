@@ -125,3 +125,27 @@ img {
   position: relative;
   display: block;
 }
+.tourDetailContainer .tourDetailMainDiv .tourRule .nav > li > a {
+  padding: 10px 9px;
+}
+.nav.nav-tabs li a {
+  border-radius: 0;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+}
+@media (min-width: 1200px) {
+  .visible-lg-inline {
+    display: inline !important;
+  }
+}

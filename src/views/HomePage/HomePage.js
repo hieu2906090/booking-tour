@@ -6,10 +6,13 @@ import Section from "./components/Section/Section";
 import Slider from "./components/Slider/Slider";
 import { HomepageContext } from "../../context/homepage";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import "../../assets/css/HomePage.css";
 
 export default function HomePage() {
+  // Swal.fire("HomePage Called");
+
   const tours = useContext(HomepageContext);
   //   const [tourList, setTourList] = useState([]);
   const tourList = [

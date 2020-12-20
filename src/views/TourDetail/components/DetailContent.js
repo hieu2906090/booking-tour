@@ -15,7 +15,10 @@ function DetailContent(props) {
 
     // Step 2: TODO find a way to load background-image
     let titleImgDiv = detailRef.current.querySelector(".tourHeaderCover2");
-    let imgSrc = titleImgDiv.style.backgroundImage;
+    // let newTitleImg = React.createElement("div", {
+    //   dangerouslySetInnerHTML: titleImgDiv.toString(),
+    // });
+    // titleImgDiv.dangerouslySetInnerHTML = newTitleImg;
   }, [detailRef]);
 
   return (

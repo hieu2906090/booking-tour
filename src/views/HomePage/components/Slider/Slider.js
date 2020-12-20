@@ -1,7 +1,12 @@
 import React from "react";
 import "./Slider.css";
+import { DatePicker, Space } from "antd";
 
 function Slider() {
+  function onChange(date, dateString) {
+    console.log(date, dateString);
+  }
+
   return (
     <>
       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
@@ -144,7 +149,10 @@ function Slider() {
                                       className="v_field__text"
                                       id="DateOfWeekCheckinStr"
                                     >
-                                      Thứ ba
+                                      <DatePicker
+                                        onChange={onChange}
+                                        picker="week"
+                                      />
                                     </p>
                                     <p
                                       className="v_field__description"
