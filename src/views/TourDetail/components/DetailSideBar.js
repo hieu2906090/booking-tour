@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "../../../assets/css/DetailSideBar.css";
 
-function DetailSideBar() {
+function DetailSideBar(props) {
   const [date, setDate] = useState("");
   const [inputDate, setInputDate] = useState("");
+
+  function callModalOpen() {
+    props.abc();
+  }
 
   var dayDict = {
     0: "Chủ Nhật", // <div style={{color='red'}}>Chu Nhat</div>
@@ -24,8 +28,6 @@ function DetailSideBar() {
     // return dayDict[item];
     return converNumberToDay(item);
   });
-
-  console.log(mangDemoThayDoi);
 
   function userSelectDate(e) {
     setInputDate(e.target.value);
@@ -208,7 +210,8 @@ function DetailSideBar() {
                           <label className="visible-sm">&nbsp;</label>
                           <div className="col-xs-12 no-padding scroll-mobile">
                             <div className="col-xs-12 no-padding request-Button">
-                              <button className="btn btn-flat btn-action btn-md btn-block requestButton">
+                              <button onClick={callModalOpen}
+                                className="btn btn-flat btn-action btn-md btn-block requestButton">
                                 Yêu cầu đặt
                               </button>
                             </div>
