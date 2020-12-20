@@ -1,7 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../../assets/css/DetailSideBar.css";
 
 function DetailSideBar() {
+  const [date, setDate] = useState("");
+  const [inputDate, setInputDate] = useState("");
+
+  var dayDict = {
+    0: "Chủ Nhật", // <div style={{color='red'}}>Chu Nhat</div>
+    1: "Thứ Hai",
+    2: "Thứ Ba",
+    3: "Thứ Tư",
+    4: "Thứ Năm",
+    5: "Thứ Sáu",
+    6: "Thứ Bảy",
+  };
+
+  function converNumberToDay(number) {
+    return <div style={{ color: "red" }}>{dayDict[number]}</div>;
+  }
+
+  var mangDemo = [0, 1, 2, 3, 4, 5, 6];
+  var mangDemoThayDoi = mangDemo.map((item) => {
+    // return dayDict[item];
+    return converNumberToDay(item);
+  });
+
+  console.log(mangDemoThayDoi);
+
+  function userSelectDate(e) {
+    setInputDate(e.target.value);
+    let selectDate = new Date(e.target.value);
+    let dayOfWeek = selectDate.getDay(); // 0123456 ứng với thứ tự ngày trong tuần (0 -> chủ nhật)
+    setDate(dayDict[dayOfWeek]);
+    // console.log(dayDict[dayOfWeek]);
+  }
+
   return (
     <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-lg-push-8 col-md-push-8 sideBarContent">
       <div className="col-xs-12 no-padding tourSideBar" id="tourSideBar">
@@ -33,12 +66,13 @@ function DetailSideBar() {
                             htmlFor="DateCheckinField"
                             className="col-xs-8 control-label no-padding"
                           >
-                            Chọn ngày khởi hành:
+                            Chọn ngày khởi hành:{" "}
+                            <p style={{ color: "red" }}>{date}</p>
                           </label>
                           <div className="col-xs-4 no-padding">
                             <div className="date-input-group">
-                              <label
-                                readonly=""
+                              {/* <label
+                                readOnly=""
                                 type="text"
                                 className="form-control date-input dates-date btn-general DateCheckinField"
                                 value="11-11-2017"
@@ -46,11 +80,13 @@ function DetailSideBar() {
                                 <span className="DateCheckinText">
                                   16-12-2020
                                 </span>
-                              </label>
+                              </label> */}
                               <input
-                                type="hidden"
+                                // type="hidden"
+                                type="date"
                                 className="get_date"
-                                value="2020-12-16"
+                                value={inputDate}
+                                onChange={userSelectDate}
                               />
                             </div>
                           </div>
