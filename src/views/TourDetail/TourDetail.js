@@ -3,26 +3,39 @@ import "../../assets/css/TourDetail/TourDetail.css";
 import Header from "../../components/Header";
 import DetailSideBar from "./components/DetailSideBar";
 import DetailContent from "./components/DetailContent";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
+import FormModal from "../../components/FormModal";
 
 function TourDetail(props) {
   const modalRef = useRef("");
-  const [isOpen, setIsOpen] = useState('none');
-  const [inputForm, setInputForm] = useState('');
+  const [isOpen, setIsOpen] = useState("none");
+  const [inputForm, setInputForm] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   const handleCallModalOpen = () => {
-    let styleModal = isOpen === 'none' ? 'block' : 'none';
+    let styleModal = isOpen === "none" ? "block" : "none";
     // if (isOpen === 'none') {
     //   document.getElementById('myModal').reset();
     // }
     setIsOpen(styleModal);
-  }
+    // setIsModalVisible(true);
+  };
 
   function handleInputChange(e) {
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
     const name = e.target.name;
     setInputForm({
       ...inputForm,
-      [name]: value
+      [name]: value,
     });
   }
 
@@ -40,17 +53,20 @@ function TourDetail(props) {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         // STEP 3: Nếu thành công thì hiện thông báo cho người dùng
-        Swal.fire('Thành Công!', `Bạn đã gởi yêu cầu thành công. Chúng tôi sẽ liên hệ đến số điện thoại ${inputForm.phone} trong thời gian sớm nhất.`, 'success')
-        setIsOpen('none');
+        Swal.fire(
+          "Thành Công!",
+          `Bạn đã gởi yêu cầu thành công. Chúng tôi sẽ liên hệ đến số điện thoại ${inputForm.phone} trong thời gian sớm nhất.`,
+          "success"
+        );
+        setIsOpen("none");
         // TODO 4: Lưu thông tin về server (trang admin)
         //
       } else if (result.isDenied) {
-        Swal.fire('Không Thành Công', '', 'info');
-        setIsOpen('none');
+        Swal.fire("Không Thành Công", "", "info");
+        setIsOpen("none");
       }
-    })
-    console.log('Cac Gia Tri Input hien tai:', inputForm);
-
+    });
+    console.log("Cac Gia Tri Input hien tai:", inputForm);
   }
 
   return (
@@ -64,28 +80,64 @@ function TourDetail(props) {
           </div>
         </div>
       </div>
-      <div id="myModal" class="modal-tour-detail" ref={modalRef} style={{ display: isOpen }}>
+      <div
+        id="myModal"
+        class="modal-tour-detail"
+        ref={modalRef}
+        style={{ display: isOpen }}
+      >
         <div class="modal-content">
-          <span class="close" onClick={handleCallModalOpen}>&times;</span>
+          <span class="close" onClick={handleCallModalOpen}>
+            &times;
+          </span>
           <form>
             <div className="form-group">
               <label for="hoVaTen"> Họ& Tên:</label>
-              <input onChange={handleInputChange} class="form-control" name="fullname" type="text" id="hoVaTen" />
+              <input
+                onChange={handleInputChange}
+                class="form-control"
+                name="fullname"
+                type="text"
+                id="hoVaTen"
+              />
             </div>
             <div className="form-group">
               <label for="phone"> Điện thoại:</label>
-              <input onChange={handleInputChange} class="form-control" name="phone" type="text" id="phone" />
+              <input
+                onChange={handleInputChange}
+                class="form-control"
+                name="phone"
+                type="text"
+                id="phone"
+              />
             </div>
             <div className="form-group">
               <label for="email">Email</label>
-              <input onChange={handleInputChange} class="form-control" name="email" type="text" id="email" />
+              <input
+                onChange={handleInputChange}
+                class="form-control"
+                name="email"
+                type="text"
+                id="email"
+              />
             </div>
             <div className="form-group">
-
               <label for="requirement">Yêu cầu khác</label>
-              <input onChange={handleInputChange} class="form-control" name="requirement" type="text" id="requirement" />
+              <input
+                onChange={handleInputChange}
+                class="form-control"
+                name="requirement"
+                type="text"
+                id="requirement"
+              />
             </div>
-            <button type="button" onClick={saveUserRequestForm} class="btn modal-btn">Gửi yêu cầu</button>
+            <button
+              type="button"
+              onClick={saveUserRequestForm}
+              class="btn modal-btn"
+            >
+              Gửi yêu cầu
+            </button>
           </form>
         </div>
       </div>

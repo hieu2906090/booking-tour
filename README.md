@@ -1,5 +1,11 @@
 # README CHO ĐỒ ÁN FE12
 
+## 0. WEB THAM KHẢO VỀ GIAO DIỆN
+
+<https://pro.ant.design/>
+<https://github.com/zuiidea/antd-admin>
+<https://antd-admin.zuiidea.com/chart/highCharts>
+
 ## 1. MỘT SỐ LỆNH VỚI GIT
 
 ### 1.1. Quy trình khi xây dựng một tính năng mới:

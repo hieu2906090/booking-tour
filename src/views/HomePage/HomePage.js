@@ -12,7 +12,6 @@ import "../../assets/css/HomePage.css";
 
 export default function HomePage() {
   // Swal.fire("HomePage Called");
-
   const tours = useContext(HomepageContext);
   //   const [tourList, setTourList] = useState([]);
   const tourList = [

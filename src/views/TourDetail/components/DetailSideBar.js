@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { DatePicker } from "antd";
+import moment from "moment";
 import "../../../assets/css/DetailSideBar.css";
 
 function DetailSideBar(props) {
@@ -29,9 +31,9 @@ function DetailSideBar(props) {
     return converNumberToDay(item);
   });
 
-  function userSelectDate(e) {
-    setInputDate(e.target.value);
-    let selectDate = new Date(e.target.value);
+  function userSelectDate(e, dateString) {
+    setInputDate(moment(e._d));
+    let selectDate = new Date(dateString);
     let dayOfWeek = selectDate.getDay(); // 0123456 ứng với thứ tự ngày trong tuần (0 -> chủ nhật)
     setDate(dayDict[dayOfWeek]);
     // console.log(dayDict[dayOfWeek]);
@@ -71,7 +73,7 @@ function DetailSideBar(props) {
                             Chọn ngày khởi hành:{" "}
                             <p style={{ color: "red" }}>{date}</p>
                           </label>
-                          <div className="col-xs-4 no-padding">
+                          <div className="col-xs-12 no-padding">
                             <div className="date-input-group">
                               {/* <label
                                 readOnly=""
@@ -83,10 +85,8 @@ function DetailSideBar(props) {
                                   16-12-2020
                                 </span>
                               </label> */}
-                              <input
-                                // type="hidden"
-                                type="date"
-                                className="get_date"
+
+                              <DatePicker
                                 value={inputDate}
                                 onChange={userSelectDate}
                               />
@@ -210,8 +210,10 @@ function DetailSideBar(props) {
                           <label className="visible-sm">&nbsp;</label>
                           <div className="col-xs-12 no-padding scroll-mobile">
                             <div className="col-xs-12 no-padding request-Button">
-                              <button onClick={callModalOpen}
-                                className="btn btn-flat btn-action btn-md btn-block requestButton">
+                              <button
+                                onClick={callModalOpen}
+                                className="btn btn-flat btn-action btn-md btn-block requestButton"
+                              >
                                 Yêu cầu đặt
                               </button>
                             </div>

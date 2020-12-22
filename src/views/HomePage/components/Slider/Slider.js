@@ -145,21 +145,17 @@ function Slider() {
                                     <i className="fas fa-calendar-day"></i>
                                   </div>
                                   <div className="v_field__content">
-                                    <p
+                                    {/* <p
                                       className="v_field__text"
                                       id="DateOfWeekCheckinStr"
-                                    >
-                                      <DatePicker
-                                        onChange={onChange}
-                                        picker="week"
-                                      />
-                                    </p>
+                                    ></p>
                                     <p
                                       className="v_field__description"
                                       id="DateCheckinStr"
                                     >
                                       01-12-2020
-                                    </p>
+                                    </p> */}
+                                    <DatePicker></DatePicker>
                                   </div>
                                 </div>
                                 <div className="col-xs-12 no-padding invisible-date-container">

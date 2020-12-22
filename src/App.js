@@ -6,10 +6,15 @@ import { HomepageContext } from "./context/homepage";
 import { Switch, Route, Redirect } from "react-router-dom";
 import TourDetail from "./views/TourDetail/TourDetail";
 import TourFilter from "./views/TourFilter/TourFilter";
+import { getAllToursRaw } from "./redux/actions/tours";
+import { useSelector, useDispatch } from "react-redux";
+import AdminPage from "./views/AdminPage/AdminPage";
 
 function App() {
+  const dispatch = useDispatch();
   const [tours, setTours] = useState("");
   useEffect(() => {
+    dispatch(getAllToursRaw());
     axios
       .get("scrape_ivivu_new.json")
       .then((data) => {
@@ -65,8 +70,14 @@ function App() {
             return <TourFilter tours={tourList}></TourFilter>;
           }}
         ></Route>
+        <Route
+          path="/admin"
+          render={(props) => {
+            return <AdminPage></AdminPage>;
+          }}
+        ></Route>
       </Switch>
-      <Footer></Footer>
+      {/* <Footer></Footer>  */}
     </div>
   );
 }
