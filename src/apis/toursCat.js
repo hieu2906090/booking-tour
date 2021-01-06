@@ -1,27 +1,52 @@
-import axios from "axios";
+import { firestore as db } from "./firebase/firebase";
 
-const baseUrl = "http://localhost:3001";
+const tourCatsRef = db.collection("tour-cats");
+const tableConfigRef = db.collection("table-configs");
 
-export const createTourCatFromRaw = async (tourCat) => {
-  return axios
-    .post(baseUrl + "/tour-cats", tourCat)
-    .then(() => {
-      tourCat.isError = false;
-      return { isError: false };
-    })
-    .catch((err) => {
-      tourCat.isError = true;
-      tourCat.errorStr = err;
-      return { isError: true, errorStr: err, itemError: tourCat.url };
-    });
+// ------------------------------- TOUR CAT ----------------------------
+export const createTourCat = (tourCat) => {
+  return new Promise((res, rej) => {
+    tourCatsRef
+      .add(tourCat)
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id);
+        res(docRef.id);
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+        rej(error);
+      });
+  });
 };
 
-export const getAllTourCat = () => {
+export const editTourCat = (newTourCat) => {
   return new Promise((res, rej) => {
-    axios
-      .get(baseUrl + "/tour-cats")
-      .then((data) => {
-        res(data.data);
+    tourCatsRef
+      .doc(newTourCat.fid)
+      .set(newTourCat)
+      .then(function () {
+        console.log("Document successfully written!");
+        res("Ok");
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+        rej(error);
+      });
+  });
+};
+
+export const getAllTourCats = () => {
+  let tourCats = [];
+  return new Promise((res, rej) => {
+    tourCatsRef
+      .get()
+      .then((querySnapshot) => {
+        if (!querySnapshot.empty) {
+          querySnapshot.forEach((doc) => {
+            tourCats.push({ fid: doc.id, ...doc.data() });
+          });
+        }
+        res(tourCats);
       })
       .catch((err) => {
         rej(err);
@@ -29,15 +54,46 @@ export const getAllTourCat = () => {
   });
 };
 
-export const deleteTourCat = (tourCat) => {
-  return axios
-    .delete(baseUrl + "/tour-cats/" + tourCat.id)
-    .then(() => {
-      return { isError: false };
-    })
-    .catch((err) => {
-      tourCat.isError = true;
-      tourCat.errorStr = err;
-      return { isError: true, errorStr: err, itemError: tourCat.url };
-    });
+export const deleteTourCat = (tourCatId) => {
+  console.log("Delete TOur ID: " + tourCatId);
+  let deleteTourCatPromise = new Promise((res, rej) => {
+    tourCatsRef
+      .doc(tourCatId)
+      .delete()
+      .then((data) => res(data))
+      .catch((err) => rej(err));
+  });
+  return deleteTourCatPromise;
+};
+
+// ------------------------------- TOUR CAT CONFIG ----------------------------
+export const createTourCatConfig = (tourCatConfig) => {
+  return new Promise((res, rej) => {
+    tableConfigRef
+      .doc("tour-cat-config")
+      .set(tourCatConfig)
+      .then(function () {
+        console.log("Document successfully written!");
+        res("Ok");
+      })
+      .catch(function (error) {
+        rej(error);
+      });
+  });
+};
+
+export const getTourCatConfig = () => {
+  return new Promise((res, rej) => {
+    tableConfigRef
+      .doc("tour-cat-config")
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          res(doc.data());
+        }
+      })
+      .catch((err) => {
+        rej(err);
+      });
+  });
 };

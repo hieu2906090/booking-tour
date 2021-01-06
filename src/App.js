@@ -7,6 +7,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import TourDetail from "./views/TourDetail/TourDetail";
 import TourFilter from "./views/TourFilter/TourFilter";
 import { getAllToursRaw } from "./redux/actions/tours";
+import { getAllTourCats } from "./redux/actions/tourCats";
+import { getTourCatConfig } from "./redux/actions/tourCatsConfig";
 import { useSelector, useDispatch } from "react-redux";
 import AdminPage from "./views/AdminPage/AdminPage";
 
@@ -15,6 +17,8 @@ function App() {
   const [tours, setTours] = useState("");
   useEffect(() => {
     dispatch(getAllToursRaw());
+    dispatch(getAllTourCats());
+    dispatch(getTourCatConfig());
     axios
       .get("scrape_ivivu_new.json")
       .then((data) => {

@@ -1,6 +1,8 @@
 import React from "react";
 import TourCatTableRaw from "./TourCat/TourCatTableRaw";
 import { Tabs } from "antd";
+import TourCatTable from "./TourCat/TourCatTable";
+import TourCatTableConfig from "./TourCat/TourCatTableConfig";
 
 const { TabPane } = Tabs;
 function callback(key) {
@@ -14,10 +16,10 @@ function TourCat() {
         <TourCatTableRaw></TourCatTableRaw>
       </TabPane>
       <TabPane tab="DS Phân Loại" key="2">
-        Content of Tab Pane 2
+        <TourCatTable></TourCatTable>
       </TabPane>
       <TabPane tab="Cấu Hình Hiển Thị" key="3">
-        Content of Tab Pane 3
+        <TourCatTableConfig></TourCatTableConfig>
       </TabPane>
     </Tabs>
   );

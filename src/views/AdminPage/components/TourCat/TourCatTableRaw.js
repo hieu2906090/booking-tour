@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button, Space } from "antd";
 import { useSelector } from "react-redux";
-import { convertObjectFieldsToColumns } from "../../../../utils/convertObjToColumns";
 import * as tourCatApi from "../../../../apis/toursCat";
 import Swal from "sweetalert2";
 import { CloseCircleOutlined, RedoOutlined } from "@ant-design/icons";
@@ -9,6 +8,7 @@ import { uuidv4 } from "../../../../utils/idHelper";
 
 function TourCatTableRaw() {
   const toursRaw = useSelector((state) => state.toursRaw.data);
+  const tourCats = useSelector((state) => state.tourCats.data);
   const [data, setData] = useState([]);
   const [originalData, setOriginalData] = useState([]);
   const columns = [
@@ -84,11 +84,11 @@ function TourCatTableRaw() {
   }, [toursRaw]);
 
   async function createTourCatFromRaw(e, data) {
-    let tours = await tourCatApi.getAllTourCat();
-    if (tours !== undefined) {
+    let tours = await tourCatApi.getAllTourCats();
+    if (tours.length === 0) {
       Swal.fire({
         title: "Cảnh Báo",
-        text: `Bạn có muốn tạo mới phân loại tour từ dữ liệu RAW? Hiện dữ liệu này đang có ${tours.length} bản ghi`,
+        text: `Bạn có muốn tạo mới phân loại tour từ dữ liệu RAW?`,
         showDenyButton: false,
         showCancelButton: true,
         cancelButtonText: "Bỏ Qua",
@@ -118,6 +118,13 @@ function TourCatTableRaw() {
         }
       });
     }
+    if (tours.length !== 0) {
+      Swal.fire(
+        "Thất Bại!",
+        `Bạn không được tạo mới dữ liệu! Dữ liệu đang có ${tours.length} bản ghi! Bạn phải xóa trước khi tạo mới.`,
+        "error"
+      );
+    }
   }
 
   async function uploadAllTourCatPromsie(existingData, data_) {
@@ -127,13 +134,14 @@ function TourCatTableRaw() {
         if (existingData.find((el) => el.id === data.id)) {
           return;
         }
-        return tourCatApi.createTourCatFromRaw(data);
+        return tourCatApi.createTourCat(data);
       })
     );
   }
 
   async function deleteAllTourCats() {
-    let tours = await tourCatApi.getAllTourCat();
+    let tours = await tourCatApi.getAllTourCats();
+    console.log(tours);
     if (tours !== undefined) {
       Swal.fire({
         title: "Cảnh Báo",
@@ -142,19 +150,14 @@ function TourCatTableRaw() {
         showCancelButton: true,
         cancelButtonText: "Bỏ Qua",
         confirmButtonText: `Đồng Ý`,
+        icon: "warning",
       }).then(async (result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           deleteAllTourCatsPromise(tours)
             .then((res) => {
-              let countErr = res.filter((data) => data.isError).length;
-              Swal.fire(
-                "Thành Công",
-                `Xóa thành công ${
-                  tours.length - countErr
-                } bản ghi. Số bản ghi lỗi ${countErr}`,
-                "success"
-              );
+              // let countErr = res.filter((data) => data.isError).length;
+              Swal.fire("Thành Công", `Xóa thành công`, "success");
             })
             .catch((err) => {
               Swal.fire(`Lỗi: ${err}`);
@@ -167,7 +170,11 @@ function TourCatTableRaw() {
   }
 
   function deleteAllTourCatsPromise(data_) {
-    return Promise.all(data_.map((data) => tourCatApi.deleteTourCat(data)));
+    return Promise.all(
+      data_.map((data) => {
+        tourCatApi.deleteTourCat(data.fid);
+      })
+    );
   }
 
   return (
@@ -176,7 +183,7 @@ function TourCatTableRaw() {
         <Button type="primary" onClick={(e) => createTourCatFromRaw(e, data)}>
           Tạo Danh Mục Tour
         </Button>
-        <Button type="default" danger onClick={(e) => deleteAllTourCats(e)}>
+        <Button type="default" danger onClick={(e) => deleteAllTourCats()}>
           Xóa Danh Mục Tour
         </Button>
       </Space>
