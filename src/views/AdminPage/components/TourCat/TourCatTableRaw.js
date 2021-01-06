@@ -7,7 +7,7 @@ import { CloseCircleOutlined, RedoOutlined } from "@ant-design/icons";
 import { uuidv4 } from "../../../../utils/idHelper";
 
 function TourCatTableRaw() {
-  const toursRaw = useSelector((state) => state.toursRaw.data);
+  const toursRaw = useSelector((state) => state.tourRaw.data);
   const tourCats = useSelector((state) => state.tourCats.data);
   const [data, setData] = useState([]);
   const [originalData, setOriginalData] = useState([]);
@@ -76,6 +76,13 @@ function TourCatTableRaw() {
         key: key,
         url: key,
         count: _value.length,
+        tours: _value.map((tour) => {
+          return {
+            id: tour.tourId,
+            url: tour.tourUrl,
+            imgSrc: tour.tourImgSrc,
+          };
+        }),
       });
     }
     // console.log(originalData);

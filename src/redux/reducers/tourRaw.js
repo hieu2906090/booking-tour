@@ -6,7 +6,7 @@ let defaultToursState = {
   err: "",
 };
 
-export default function toursReducer(state = defaultToursState, action) {
+export default function tourRawReducer(state = defaultToursState, action) {
   switch (action.type) {
     case actionTypes.GET_TOURS_RAW_SUCCESS:
       return {

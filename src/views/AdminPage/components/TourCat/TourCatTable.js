@@ -5,6 +5,7 @@ import EditableCell from "../../components/EditableCell";
 import "../../../../assets/css/AdminPage/TourCatTable.css";
 import { EditableContext } from "../../../../context/editableContext";
 import { editTourCat } from "../../../../redux/actions/tourCats";
+import { createColumnsFromObj } from "../../../../utils/tableHelper";
 
 const EditableRow = ({ index, ...props }) => {
   const [form] = Form.useForm();
@@ -26,7 +27,11 @@ function TourCatTable() {
 
   useEffect(() => {
     // Set Init Data
-    let newColumns = createColumnsFromObj(tourCats[0]);
+    let newColumns = createColumnsFromObj(
+      tourCats[0],
+      tourCatConfig,
+      handleSwitchChange
+    );
     newColumns = newColumns.map((col) => {
       if (!col.editable) {
         return col;
@@ -66,66 +71,6 @@ function TourCatTable() {
     dispatch(editTourCat({ ...item, ...row }));
   };
 
-  const createColumnsFromObj = (obj) => {
-    let count = 0;
-    let columns = [];
-    if (tourCatConfig) {
-      for (const [key, _value] of Object.entries(tourCatConfig)) {
-        if (!_value.display) {
-          continue;
-        }
-        const sortObj = _value.isSort
-          ? {
-              sorter: (a, b) => {
-                console.log(key);
-                return parseInt(a[key]) - parseInt(b[key]);
-              },
-              // sortDirections: ["ascend"],
-            }
-          : null;
-        const innerSwitch = _value.isSwitch
-          ? {
-              width: 8,
-              render: (cell, row) => (
-                <Switch
-                  onChange={() => {
-                    handleSwitchChange(cell, row);
-                  }}
-                  defaultChecked={row[key]}
-                ></Switch>
-              ),
-            }
-          : null;
-
-        const innerEditable = _value.isEdit ? { editable: true } : null;
-
-        columns.push({
-          title: _value.headerName,
-          width: _value.width ? parseInt(_value.width) : 15,
-          dataIndex: key,
-          key: key,
-          stt: _value.stt,
-          ...sortObj,
-          ...innerSwitch,
-          ...innerEditable,
-        });
-        count += 1;
-      }
-      columns.sort((a, b) => a.stt - b.stt);
-      return columns;
-    }
-    for (const [key, _value] of Object.entries(obj)) {
-      columns.push({
-        title: key,
-        width: 15,
-        dataIndex: key,
-        key: count,
-      });
-      count += 1;
-    }
-    return columns;
-  };
-
   const handleSwitchChange = (cell, row) => {
     const newData = [...tourCats];
     const index = newData.findIndex((item) => row.fid === item.fid);
@@ -142,10 +87,7 @@ function TourCatTable() {
   return (
     <div>
       <Space style={{ marginBottom: 16 }}>
-        <Button type="primary">Tạo Danh Mục Tour</Button>
-        <Button type="default" danger>
-          Xóa Danh Mục Tour
-        </Button>
+        <Button type="primary">Tạo Danh Mục Tour Mới</Button>
       </Space>
       <Table
         // loading={loading}
