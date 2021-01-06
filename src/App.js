@@ -16,7 +16,7 @@ function App() {
   const dispatch = useDispatch();
   const [tours, setTours] = useState("");
   useEffect(() => {
-    dispatch(getAllToursRaw());
+    dispatch(getAllToursRaw()); // Gọi theo kiểu của redux thunk đẻ lấy dữ liệu từ server (bất đồng bộ)
     dispatch(getAllTourCats());
     dispatch(getTourCatConfig());
     axios
