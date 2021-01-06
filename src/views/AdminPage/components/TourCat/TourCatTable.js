@@ -96,6 +96,7 @@ function TourCatTable() {
         dataSource={tourCats}
         scroll={{ y: 600 }}
         pagination={{ pageSize: 30 }}
+        rowKey="fid"
         components={{
           body: {
             row: EditableRow,

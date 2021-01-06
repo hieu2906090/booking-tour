@@ -40,10 +40,10 @@ function TourTableRaw() {
       width: 15,
       render: (cell) => (
         <>
-          <Button type="default" danger>
+          <Button type="default" danger onClick={() => deleteAllTours()}>
             X
           </Button>
-          <Button type="default" onClick={() => testOneTourCat(cell)}>
+          <Button type="default" onClick={() => createToursFromCatRaw(cell)}>
             Load Tours
           </Button>
         </>
@@ -71,20 +71,53 @@ function TourTableRaw() {
     // dispatch(editTourCat(item));
   };
 
-  const testOneTourCat = (cell) => {
+  const createToursFromCatRaw = (cell) => {
     console.log(cell);
     console.log(tourRaw[cell.url]);
+    Swal.fire({
+      title: "Upload Firebase",
+      text: `Bạn có muốn lưu database ${
+        tourRaw[cell.url].length
+      } tour thuộc danh mục này?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Chấp Nhận",
+      cancelButtonText: "Bỏ Qua",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        createToursPromiseAll(tourRaw[cell.url]).then((res) => {
+          Swal.fire(
+            "Thành Công!",
+            "Upload dữ liệu lên firebase thành công",
+            "success"
+          );
+        });
+      }
+    });
     // console.log(tourRaw[testUrl]);
-    // createToursPromiseAll(tourRaw[testUrl]);
   };
 
   const deleteAllTours = async () => {
-    console.log(tourCats[0]);
     let tours = await toursApi.getAllTours();
-    for (const tour of tours) {
-      await toursApi.deleteTour(tour.fid);
-    }
-    console.log("Delete All Tours Called");
+    Swal.fire({
+      title: "Upload Firebase",
+      text: `Bạn có xóa tất cả tours?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Chấp Nhận",
+      cancelButtonText: "Bỏ Qua",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        for (const tour of tours) {
+          await toursApi.deleteTour(tour.fid);
+        }
+        console.log("Delete All Tours Called");
+      }
+    });
   };
 
   async function createToursFromRaw(e) {
@@ -99,7 +132,7 @@ function TourTableRaw() {
         confirmButtonText: `Đồng Ý`,
       }).then(async (result) => {
         if (result.isConfirmed) {
-          testOneTourCat();
+          createToursFromCatRaw();
           // TODO: Check if there are existing data -> bypass
           // let data_ = [...originalData];
           // createToursPromiseAll(firebaseTours, data_)
