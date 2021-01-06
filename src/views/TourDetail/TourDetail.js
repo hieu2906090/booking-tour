@@ -1,13 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "../../assets/css/TourDetail/TourDetail.css";
 import Header from "../../components/Header";
 import DetailSideBar from "./components/DetailSideBar";
 import DetailContent from "./components/DetailContent";
 import Swal from "sweetalert2";
 import FormModal from "../../components/FormModal";
+import { createTourBook } from "../../redux/actions/tourBooks";
 
 function TourDetail(props) {
   const modalRef = useRef("");
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState("none");
   const [inputForm, setInputForm] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -58,6 +61,7 @@ function TourDetail(props) {
           `Bạn đã gởi yêu cầu thành công. Chúng tôi sẽ liên hệ đến số điện thoại ${inputForm.phone} trong thời gian sớm nhất.`,
           "success"
         );
+        dispatch(createTourBook({ createdAt: new Date(), ...inputForm }));
         setIsOpen("none");
         // TODO 4: Lưu thông tin về server (trang admin)
         //
