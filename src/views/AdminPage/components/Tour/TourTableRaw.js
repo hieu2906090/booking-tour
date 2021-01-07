@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Table, Button, Space, Switch } from "antd";
 import * as toursApi from "../../../../apis/tours";
-import { createColumnsFromObj } from "../../../../utils/tableHelper";
+import {
+  createColumnsFromObj,
+  reCreateOrderSttWhenSortEnd,
+} from "../../../../utils/tableHelper";
 import Swal from "sweetalert2";
 
 function TourTableRaw() {
@@ -32,6 +35,9 @@ function TourTableRaw() {
           handleSave: handleSave,
         }),
       };
+    });
+    newColumns.sort((a, b) => {
+      return a.stt - b.stt;
     });
     newColumns.unshift({
       title: "Thao Tác",
@@ -72,8 +78,7 @@ function TourTableRaw() {
   };
 
   const createToursFromCatRaw = (cell) => {
-    console.log(cell);
-    console.log(tourRaw[cell.url]);
+    let catData = { tourCatId: cell.fid, tourCatUrl: cell.url };
     Swal.fire({
       title: "Upload Firebase",
       text: `Bạn có muốn lưu database ${
@@ -87,7 +92,7 @@ function TourTableRaw() {
       cancelButtonText: "Bỏ Qua",
     }).then((result) => {
       if (result.isConfirmed) {
-        createToursPromiseAll(tourRaw[cell.url]).then((res) => {
+        createToursPromiseAll(tourRaw[cell.url], catData).then((res) => {
           Swal.fire(
             "Thành Công!",
             "Upload dữ liệu lên firebase thành công",
@@ -115,7 +120,11 @@ function TourTableRaw() {
         for (const tour of tours) {
           await toursApi.deleteTour(tour.fid);
         }
-        console.log("Delete All Tours Called");
+        Swal.fire(
+          "Thành Công!",
+          "Delete dữ liệu lên firebase thành công",
+          "success"
+        );
       }
     });
   };
@@ -171,8 +180,13 @@ function TourTableRaw() {
         // loading={loading}
         columns={columns}
         dataSource={tourCats}
-        scroll={{ y: 300 }}
-        pagination={{ pageSize: 30 }}
+        rowKey="fid"
+        scroll={{ y: 500 }}
+        pagination={{
+          pageSize: 30,
+          showSizeChanger: true,
+          pageSizeOptions: ["10", "20", "30", "50", "100"],
+        }}
         // sticky
       />
     </div>
@@ -181,10 +195,10 @@ function TourTableRaw() {
 
 export default TourTableRaw;
 
-async function createToursPromiseAll(insertData) {
+async function createToursPromiseAll(insertData, catData) {
   return Promise.all(
     insertData.map((data) => {
-      return toursApi.createTour(data);
+      return toursApi.createTour({ ...data, tourCat: catData });
     })
   );
 }

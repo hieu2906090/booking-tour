@@ -31,7 +31,6 @@ export const getTourCatConfigFail = (err) => {
 
 // ----------------------------------- SET TOUR CAT CONFIG ----------------------------------
 export const createTourCatConfig = (tourCatCongfig) => {
-  console.log("Call in action of tour config: ", tourCatCongfig);
   return (dispatch) => {
     tourCatsApi
       .createTourCatConfig(tourCatCongfig)

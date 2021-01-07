@@ -5,7 +5,16 @@ import {
   sortableHandle,
 } from "react-sortable-hoc";
 import { useSelector, useDispatch } from "react-redux";
-import { Table, Button, Space, Popconfirm, Form, Input, Switch } from "antd";
+import {
+  Table,
+  Button,
+  Space,
+  Popconfirm,
+  Form,
+  Input,
+  Switch,
+  Badge,
+} from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import arrayMove from "array-move";
 import "../../../../assets/css/AdminPage/TourCatTableConfig.css";
@@ -315,6 +324,10 @@ function TourCatTableConfig() {
       setData(newData);
     }
   };
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <div>

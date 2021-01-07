@@ -12,7 +12,7 @@ export const getAllTours = () => {
       .then((querySnapshot) => {
         if (!querySnapshot.empty) {
           querySnapshot.forEach((doc) => {
-            tours.push({ fid: doc.id, ...doc.data() });
+            tours.push({ ...doc.data() });
           });
         }
         res(tours);
@@ -43,12 +43,30 @@ export const countTours = () => {
 };
 
 export const createTour = (tour) => {
+  console.log(tour);
   return new Promise((res, rej) => {
     toursRef
-      .add(tour)
+      .doc(tour.tourId)
+      .set(tour)
       .then(function (docRef) {
-        console.log("Document written with ID: ", docRef.id);
-        res(docRef.id);
+        console.log("Document written with ID: ", tour.tourId);
+        res(tour.tourId);
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+        rej(error);
+      });
+  });
+};
+
+export const editTour = (newTour) => {
+  return new Promise((res, rej) => {
+    toursRef
+      .doc(newTour.tourId)
+      .set(newTour)
+      .then(function () {
+        console.log("Document successfully written!");
+        res("Ok");
       })
       .catch(function (error) {
         console.error("Error adding document: ", error);
@@ -64,5 +82,37 @@ export const deleteTour = (tourId) => {
       .delete()
       .then((data) => res(data))
       .catch((err) => rej(err));
+  });
+};
+
+// ------------------------------- TOUR CAT CONFIG ----------------------------
+export const createTourConfig = (tourConfig) => {
+  return new Promise((res, rej) => {
+    tableConfigRef
+      .doc("tour-config")
+      .set(tourConfig)
+      .then(function () {
+        console.log("Document successfully written!");
+        res("Ok");
+      })
+      .catch(function (error) {
+        rej(error);
+      });
+  });
+};
+
+export const getTourConfig = () => {
+  return new Promise((res, rej) => {
+    tableConfigRef
+      .doc("tour-config")
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          res(doc.data());
+        }
+      })
+      .catch((err) => {
+        rej(err);
+      });
   });
 };

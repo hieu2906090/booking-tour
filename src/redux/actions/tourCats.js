@@ -59,3 +59,30 @@ export const editTourCatFail = (err) => {
 };
 
 // ----------------------------------- DELETE TOUR CATS ----------------------------------
+export const deleteTourCat = (tourCatId) => {
+  console.log("Call Dispatch Edit");
+  return (dispatch) => {
+    tourCatsApi
+      .deleteTourCat(tourCatId)
+      .then((res) => {
+        dispatch(deleteTourCatSuccesss(tourCatId));
+      })
+      .catch((err) => {
+        dispatch(deleteTourCatFail(err));
+      });
+  };
+};
+
+export const deleteTourCatSuccesss = (tourCatId) => {
+  return {
+    type: actionTypes.TOUR_CAT_DELETE_SUCCESS,
+    payload: { tourCatId },
+  };
+};
+
+export const deleteTourCatFail = (err) => {
+  return {
+    type: actionTypes.TOUR_CAT_DELETE_FAIL,
+    payload: err,
+  };
+};

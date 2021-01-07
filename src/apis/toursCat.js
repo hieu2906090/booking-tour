@@ -1,6 +1,7 @@
 import { firestore as db } from "./firebase/firebase";
 
 const tourCatsRef = db.collection("tour-cats");
+const toursRef = db.collection("tours");
 const tableConfigRef = db.collection("table-configs");
 
 // ------------------------------- TOUR CAT ----------------------------
@@ -95,5 +96,20 @@ export const getTourCatConfig = () => {
       .catch((err) => {
         rej(err);
       });
+  });
+};
+
+// ------------------------------ DELETE TOUR CAT WITH BATCH --------------------------------
+export const deleteTourCatBatch = (tourCat) => {
+  let batch = db.batch();
+  batch.delete(tourCatsRef.doc(tourCat.fid));
+  for (const tour of tourCat.tours) {
+    batch.delete(toursRef.doc(tour.id));
+  }
+  return new Promise((res, rej) => {
+    batch
+      .commit()
+      .then((data) => res(data))
+      .catch((err) => rej(err));
   });
 };

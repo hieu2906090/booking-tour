@@ -6,41 +6,42 @@ import Section from "./components/Section/Section";
 import Slider from "./components/Slider/Slider";
 import { HomepageContext } from "../../context/homepage";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 
 import "../../assets/css/HomePage.css";
 
 export default function HomePage() {
-  // Swal.fire("HomePage Called");
-  const tours = useContext(HomepageContext);
-  //   const [tourList, setTourList] = useState([]);
-  const tourList = [
-    {
-      key: "tour-ha-noi",
-      name: "Tour Hà Nội",
-      keyUrl: "https://www.ivivu.com/du-lich/tour-ha-noi",
-      value: tours["https://www.ivivu.com/du-lich/tour-ha-noi"],
-    },
-    {
-      key: "tour-da-nang",
-      name: "Tour Đà Nẵng",
-      keyUrl: "https://www.ivivu.com/du-lich/tour-da-nang",
-      value: tours["https://www.ivivu.com/du-lich/tour-da-nang"],
-    },
-    {
-      key: "tour-da-lat",
-      name: "Tour Đà Lạt",
-      keyUrl: "https://www.ivivu.com/du-lich/tour-da-lat",
-      value: tours["https://www.ivivu.com/du-lich/tour-da-lat"],
-    },
-  ];
+  const tourCats = useSelector((state) => state.tourCats.data);
+  const tours = useSelector((state) => state.tours.data);
+  let tourList = createTourListFromTourCats(tourCats);
+
+  function createTourListFromTourCats(tourCats_) {
+    const tourList = [];
+    for (const tourCat of tourCats_) {
+      if (tourCat.isDisplay) {
+        tourList.push({
+          id: tourCat.fid,
+          key: tourCat.appUrl,
+          name: tourCat.displayName,
+          keyUrl: tourCat.url,
+          value: tours.filter((tour) => tour.tourCat.tourCatId === tourCat.fid),
+        });
+      }
+    }
+    return tourList;
+  }
+
+  if (tourCats === undefined) {
+    return null;
+  }
 
   return (
     <div
       className="content-wrapper"
       style={{ backgroundColor: "#ecf0f5 !important", zIndex: 800 }}
     >
-      <Header></Header>
+      {/* <Header></Header> */}
       <Slider></Slider>
       {/* <RecentViews></RecentViews> */}
       <div className="container">
@@ -55,7 +56,7 @@ export default function HomePage() {
                   }}
                 >
                   <Section
-                    key={tourList.key}
+                    key={tourList.id}
                     name={tourList.name}
                     tourList={tourList.value}
                     keyUrl={tourList.keyUrl}

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function SectionItem(props) {
   return (
     <>
-      <div className="col-xs-12 col-sm-6 col-md-4">
+      <div key={props.tour.tourId} className="col-xs-12 col-sm-6 col-md-4">
         <div className="col-xs-12 cardItem">
           <Link
             to={{
@@ -15,13 +15,15 @@ function SectionItem(props) {
           >
             <div className="col-xs-12 no-padding cardItemContainer">
               <div className="col-xs-12 no-padding cardItemImage">
-                <div className="ribbonContainerOuter">
-                  <div className="ribbonContainerInner">
-                    <span className="v-ribbon">
-                      <h1>Tour bán chạy</h1>
-                    </span>
+                {props.tour.isHot ? (
+                  <div className="ribbonContainerOuter">
+                    <div className="ribbonContainerInner">
+                      <span className="v-ribbon">
+                        <h1>Tour bán chạy</h1>
+                      </span>
+                    </div>
                   </div>
-                </div>
+                ) : null}
                 <figure>
                   <picture>
                     <img

@@ -20,7 +20,18 @@ export const createColumnsFromObj = (obj, config, handleSwitchChange) => {
       const sortObj = _value.isSort
         ? {
             sorter: (a, b) => {
-              console.log(key);
+              // Case1: Sort if value is boolean
+              if (typeof a[key] === "boolean") {
+                return a === b ? 0 : a ? -1 : 1;
+              }
+              // Case2: Sort if value is string
+              if (isNaN(parseInt(a[key]))) {
+                if (a[key] < b[key]) {
+                  return -1;
+                }
+                return 1;
+              }
+              // Case3: Sort if value is number
               return parseInt(a[key]) - parseInt(b[key]);
             },
             // sortDirections: ["ascend"],
@@ -32,7 +43,7 @@ export const createColumnsFromObj = (obj, config, handleSwitchChange) => {
             render: (cell, row) => (
               <Switch
                 onChange={() => {
-                  handleSwitchChange(cell, row);
+                  handleSwitchChange(cell, row, key);
                 }}
                 defaultChecked={row[key]}
               ></Switch>
@@ -40,7 +51,15 @@ export const createColumnsFromObj = (obj, config, handleSwitchChange) => {
           }
         : null;
 
-      const innerEditable = _value.isEdit ? { editable: true } : null;
+      const innerEditable = _value.isEdit ? { editable: "true" } : null;
+
+      const innerEllipsis = _value.isEllipsis
+        ? {
+            ellipsis: {
+              showTitle: true,
+            },
+          }
+        : null;
 
       columns.push({
         title: _value.headerName,
@@ -51,6 +70,7 @@ export const createColumnsFromObj = (obj, config, handleSwitchChange) => {
         ...sortObj,
         ...innerSwitch,
         ...innerEditable,
+        ...innerEllipsis,
       });
       count += 1;
     }
