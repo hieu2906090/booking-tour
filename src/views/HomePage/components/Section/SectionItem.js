@@ -1,6 +1,7 @@
 import React from "react";
 import "../../../../assets/css/SectionItem.css";
 import { Link } from "react-router-dom";
+import { numberWithCommas } from "../../../../utils/tableHelper";
 
 function SectionItem(props) {
   return (
@@ -37,8 +38,10 @@ function SectionItem(props) {
                 <div className="cardItemPriceDivOuter">
                   <div className="cardItemPriceDivInner">
                     <span className="cardItemPriceAfterDiscount">
-                      <i class="fas fa-map-marker-alt"></i> Hạ Long, Hà Nội,
-                      Ninh Bình, Sapa
+                      <i class="fas fa-map-marker-alt"></i>{" "}
+                      {props.tour.tourDest
+                        ? props.tour.tourDest
+                        : "Hạ Long, Hà Nội, Ninh Bình, Sapa"}
                     </span>
                   </div>
                 </div>
@@ -72,9 +75,16 @@ function SectionItem(props) {
                       </div>
                       <div className="clearfix visible-xs"></div>
                       <span className="price vcolor-info">
-                        6.290.000 <small className="textCurrency">VND</small>
+                        {props.tour.price
+                          ? numberWithCommas(props.tour.price)
+                          : 0}{" "}
+                        <small className="textCurrency">VND</small>
                       </span>
-                      <div className="price-line">6.490.000 VND</div>
+                      {props.tour.oldPrice ? (
+                        <div className="price-line">
+                          {numberWithCommas(props.tour.oldPrice)}
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                 </div>

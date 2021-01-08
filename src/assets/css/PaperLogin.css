@@ -1,0 +1,31 @@
+.full-page-background {
+  background-image: url(fabio-mangione.jpg);
+  position: absolute;
+  background-position: 50%;
+}
+.full-page.section-image {
+  position: static;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.full-page {
+  align-items: center;
+  min-height: 100vh;
+  padding: 100px 0 120px;
+}
+
+.full-page .full-page-background {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  background-size: cover;
+}
+
+.section-image {
+  background-size: cover;
+  background-position: 50%;
+  width: 100%;
+}

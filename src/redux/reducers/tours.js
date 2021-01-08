@@ -26,8 +26,9 @@ export default function toursReducer(state = defaultToursState, action) {
       const newTour = action.payload;
       let newData = [...state.data];
       const tourIdx = newData.findIndex(
-        (el) => el.tourId === action.payload.fid
+        (el) => el.tourId === action.payload.tourId
       );
+      console.log(tourIdx);
       newData.splice(tourIdx, 1, newTour);
 
       return {

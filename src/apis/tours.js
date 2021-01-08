@@ -60,6 +60,7 @@ export const createTour = (tour) => {
 };
 
 export const editTour = (newTour) => {
+  console.log(newTour);
   return new Promise((res, rej) => {
     toursRef
       .doc(newTour.tourId)

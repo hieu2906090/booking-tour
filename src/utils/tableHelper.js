@@ -1,5 +1,9 @@
 import { Table, Button, Switch } from "antd";
 
+export const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 export const reCreateOrderSttWhenSortEnd = (arr) => {
   let countIncre = 1;
   arr.forEach((element) => {

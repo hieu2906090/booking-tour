@@ -23,6 +23,7 @@ import { createTourConfig } from "../../../../redux/actions/toursConfig";
 import EditableCell from "../EditableCell";
 import { reCreateOrderSttWhenSortEnd } from "../../../../utils/tableHelper";
 import { EditableContext } from "../../../../context/editableContext";
+import Swal from "sweetalert2";
 
 function TourTableConfig() {
   const tours = useSelector((state) => state.tours.data);
@@ -155,8 +156,12 @@ function TourTableConfig() {
       key: "operation",
       // fixed: "right",
       width: 10,
-      render: () => (
-        <Button type="default" danger>
+      render: (row, cell) => (
+        <Button
+          type="default"
+          danger
+          onClick={() => handleDeleteConfigField(row, cell)}
+        >
           X
         </Button>
       ),
@@ -178,6 +183,38 @@ function TourTableConfig() {
       }),
     };
   });
+
+  function handleDeleteConfigField(row, cell) {
+    Swal.fire({
+      title: "Xóa Cấu Hình Tour",
+      text: `Bạn có muốn xóa Cấu Hình Tour?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Chấp Nhận",
+      cancelButtonText: "Bỏ Qua",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newData = [...data];
+        const index = newData.findIndex((item) => row.field === item.field);
+        const item = newData[index];
+        // TODO: Save to the redux store
+        // Create field before saving to firestore database
+        newData.splice(index, 1);
+        dispatch(createTourConfig(deleteConfigFieldFromEl(row)));
+        // Remove the old item and add new state
+        setData(reCreateOrderSttWhenSortEnd(newData));
+        Swal.fire("Thành Công!", "Xóa Cấu Hình Tour thành công", "success");
+      }
+    });
+  }
+
+  const deleteConfigFieldFromEl = (row) => {
+    let newConfigObj = { ...tourConfig };
+    delete newConfigObj[row.field];
+    return newConfigObj;
+  };
 
   function createDataTableConfig(obj) {
     let count = 1;
@@ -290,7 +327,7 @@ function TourTableConfig() {
     setData([
       ...data,
       {
-        stt: maxStt,
+        stt: maxStt + 1,
         field: "New Field",
         headerName: "New Field",
         display: false,

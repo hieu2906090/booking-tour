@@ -23,6 +23,7 @@ import { createTourCatConfig } from "../../../../redux/actions/tourCatsConfig";
 import EditableCell from "../EditableCell";
 import { reCreateOrderSttWhenSortEnd } from "../../../../utils/tableHelper";
 import { EditableContext } from "../../../../context/editableContext";
+import Swal from "sweetalert2";
 
 function TourCatTableConfig() {
   const tourCats = useSelector((state) => state.tourCats.data);
@@ -139,8 +140,12 @@ function TourCatTableConfig() {
       key: "operation",
       // fixed: "right",
       width: 10,
-      render: () => (
-        <Button type="default" danger>
+      render: (row, cell) => (
+        <Button
+          type="default"
+          danger
+          onClick={() => handleDeleteConfigField(row, cell)}
+        >
           X
         </Button>
       ),
@@ -162,6 +167,38 @@ function TourCatTableConfig() {
       }),
     };
   });
+
+  function handleDeleteConfigField(row, cell) {
+    Swal.fire({
+      title: "Xóa Cấu Hình Tour Cat",
+      text: `Bạn có muốn xóa Cấu Hình Tour Cat?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Chấp Nhận",
+      cancelButtonText: "Bỏ Qua",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newData = [...data];
+        const index = newData.findIndex((item) => row.field === item.field);
+        const item = newData[index];
+        // TODO: Save to the redux store
+        // Create field before saving to firestore database
+        newData.splice(index, 1);
+        dispatch(createTourCatConfig(deleteConfigFieldFromEl(row)));
+        // Remove the old item and add new state
+        setData(reCreateOrderSttWhenSortEnd(newData));
+        Swal.fire("Thành Công!", "Xóa Cấu Hình Tour Cat thành công", "success");
+      }
+    });
+  }
+
+  const deleteConfigFieldFromEl = (row) => {
+    let newConfigObj = { ...tourCatConfig };
+    delete newConfigObj[row.field];
+    return newConfigObj;
+  };
 
   function createDataTableConfig(obj) {
     let count = 1;
@@ -271,7 +308,7 @@ function TourCatTableConfig() {
     setData([
       ...data,
       {
-        stt: maxStt,
+        stt: maxStt + 1,
         field: "New Field",
         headerName: "New Field",
         display: false,

@@ -44,10 +44,11 @@ export const editTour = (newTour) => {
   };
 };
 
-export const editTourSuccesss = (newTourCat) => {
+export const editTourSuccesss = (newTour) => {
+  console.log(newTour);
   return {
     type: actionTypes.TOUR_EDIT_SUCCESS,
-    payload: newTourCat,
+    payload: newTour,
   };
 };
 
@@ -59,7 +60,7 @@ export const editTourFail = (err) => {
 };
 
 // ----------------------------------- DELETE TOUR ----------------------------------
-export const deleteTourCat = (tourId) => {
+export const deleteTour = (tourId) => {
   console.log("Call Dispatch Edit");
   return (dispatch) => {
     toursApi
